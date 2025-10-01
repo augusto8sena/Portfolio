@@ -1307,17 +1307,22 @@
 
     #sobre-section .robot-arm.left {
         left: -15px;
-        animation: armWave 2s ease-in-out infinite;
+        animation: leftarmWave 2s ease-in-out infinite;
     }
 
     #sobre-section .robot-arm.right {
         right: -15px;
-        animation: armWave 2s ease-in-out infinite 1s;
+        animation: rightarmWave 2s ease-in-out infinite 1s;
     }
 
-    @keyframes armWave {
+    @keyframes rightarmWave {
         0%, 100% { transform: rotate(0deg); }
         50% { transform: rotate(20deg); }
+    }
+
+    @keyframes leftarmWave {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(-20deg); }
     }
 
     @keyframes particleFade {
