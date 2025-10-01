@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfolio Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            /* animation removida */
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .profile-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.4), transparent 70%);
+            border-radius: 50%;
+            /* animation removida */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .profile-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #8a2be2;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.6);
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #8a2be2;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #b8b8b8;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-title span {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(138, 43, 226, 0.1);
+            border: 2px solid #8a2be2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8a2be2;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #8a2be2;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            color: #fff;
+            border-color: #9d4edd;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .social-link:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #8a2be2, #9d4edd);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(138, 43, 226, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-7px);
+            }
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: #8a2be2;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1.5rem;
+            }
+
+            .profile-image-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-glow {
+                width: 230px;
+                height: 230px;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .download-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-image-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .profile-glow {
+                width: 210px;
+                height: 210px;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="profile-image-container">
+                <div class="profile-glow"></div>
+                <div class="profile-image">
+                    <!-- Substitua o ícone pela sua foto: <img src="sua-foto.jpg" alt="Seu Nome"> -->
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-name">Augusto Sena</h1>
+                <p class="hero-title">
+                    <span >Tec. Desenvolvimento de Sistemas</span>  | 
+                    
+                </p>
+
+                <div class="social-links">
+                    <a href="https://instagram.com/aug.sena" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/augusto8sena" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/augusto8sena" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/5511941369774" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <a href="#" class="download-btn" id="download-cv">
+                    <i class="fas fa-download"></i>
+                    Download Currículo
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <script>
+        // Sistema de Partículas
+        class ParticleSystem {
+            constructor() {
+                this.canvas = document.getElementById('particles-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = 100;
+                this.mouse = { x: null, y: null, radius: 150 };
+                
+                this.init();
+                this.animate();
+                this.setupEventListeners();
+            }
+
+            init() {
+                this.resize();
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.particles.push(new Particle(this.canvas.width, this.canvas.height));
+                }
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.resize());
+                
+                window.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.x;
+                    this.mouse.y = e.y;
+                });
+
+                window.addEventListener('mouseout', () => {
+                    this.mouse.x = null;
+                    this.mouse.y = null;
+                });
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.particles.forEach(particle => {
+                    particle.update(this.mouse);
+                    particle.draw(this.ctx);
+                });
+
+                this.connectParticles();
+                requestAnimationFrame(() => this.animate());
+            }
+
+            connectParticles() {
+                for (let i = 0; i < this.particles.length; i++) {
+                    for (let j = i + 1; j < this.particles.length; j++) {
+                        const dx = this.particles[i].x - this.particles[j].x;
+                        const dy = this.particles[i].y - this.particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 120) {
+                            this.ctx.strokeStyle = `rgba(138, 43, 226, ${1 - distance / 120})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                            this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                            this.ctx.stroke();
+                        }
+                    }
+                }
+            }
+        }
+
+        class Particle {
+            constructor(canvasWidth, canvasHeight) {
+                this.x = Math.random() * canvasWidth;
+                this.y = Math.random() * canvasHeight;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.canvasWidth = canvasWidth;
+                this.canvasHeight = canvasHeight;
+            }
+
+            update(mouse) {
+                // Interação com o mouse
+                if (mouse.x != null && mouse.y != null) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        const forceX = dx / distance;
+                        const forceY = dy / distance;
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        
+                        this.vx += forceX * force * 0.5;
+                        this.vy += forceY * force * 0.5;
+                    }
+                }
+
+                // Movimento
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Fricção
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+
+                // Limites da tela
+                if (this.x < 0 || this.x > this.canvasWidth) this.vx *= -1;
+                if (this.y < 0 || this.y > this.canvasHeight) this.vy *= -1;
+
+                // Manter dentro dos limites
+                this.x = Math.max(0, Math.min(this.canvasWidth, this.x));
+                this.y = Math.max(0, Math.min(this.canvasHeight, this.y));
+            }
+
+            draw(ctx) {
+                ctx.fillStyle = '#8a2be2';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Brilho
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+                gradient.addColorStop(0, 'rgba(138, 43, 226, 0.3)');
+                gradient.addColorStop(1, 'rgba(138, 43, 226, 0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Inicializar sistema de partículas
+        new ParticleSystem();
+
+        // Animação de digitação para o nome
+        const nameElement = document.querySelector('.hero-name');
+        const originalText = nameElement.textContent;
+        nameElement.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < originalText.length) {
+                nameElement.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        setTimeout(typeWriter, 500);
+
+        // Efeito de hover nos links sociais
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Botão de download com feedback
+        const downloadBtn = document.getElementById('download-cv');
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Adicione aqui o link para o seu PDF
+            // window.location.href = 'seu-curriculo.pdf';
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Download Iniciado!';
+            this.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-download"></i> Download Currículo';
+                this.style.background = 'linear-gradient(135deg, #8a2be2, #9d4edd)';
+            }, 3000);
+        });
+
+        // Scroll suave para o indicador
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
