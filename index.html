@@ -87,7 +87,7 @@
             font-size: 1.1rem;
             /* Diminui o tamanho da imagem da logo */
             img {
-                height: 90px;
+                height: 38px;
                 width: auto;
                 vertical-align: middle;
             }
@@ -836,6 +836,349 @@
             transform: translateY(-5px);
             box-shadow: 0 0 30px var(--accent-glow);
         }
+
+         #sobre-section .circuit-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    #sobre-section .circuit-line {
+        position: absolute;
+        background: #8b5cf6;
+        animation: pulse-circuit 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-circuit {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+    }
+
+    #sobre-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Cabeçalho */
+    #sobre-section .header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    #sobre-section .header h2 {
+        font-size: 3.5em;
+        color: #8b5cf6;
+        margin-bottom: 10px;
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        animation: glow-title 2s ease-in-out infinite;
+    }
+
+    @keyframes glow-title {
+        0%, 100% { text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+        50% { text-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
+    }
+
+    #sobre-section .header .subtitle {
+        font-size: 1.3em;
+        color: #a78bfa;
+        font-weight: 300;
+    }
+
+    /* Grid principal */
+    #sobre-section .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    /* Cards */
+    #sobre-section .card {
+        background: linear-gradient(145deg, #13131a, #1a1a24);
+        border: 1px solid #2d2d3d;
+        border-radius: 15px;
+        padding: 30px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #sobre-section .card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #0d0d0d, #111111, rgba(130, 99, 201, 0.278));
+        border-radius: 15px;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+    }
+
+    #sobre-section .card:hover::before {
+        opacity: 0.5;
+    }
+
+    #sobre-section .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    #sobre-section .card-icon {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        display: inline-block;
+        animation: float-icon 3s ease-in-out infinite;
+    }
+
+    @keyframes float-icon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    #sobre-section .card h3 {
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+    }
+
+    #sobre-section .card p {
+        line-height: 1.8;
+        color: #b0b0c0;
+        margin-bottom: 20px;
+    }
+
+    /* Linguagens de programação */
+    #sobre-section .languages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    #sobre-section .lang-tag {
+        background: linear-gradient(135deg, #000000, #8328d950);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #sobre-section .lang-tag::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        
+        transform: translate(-50%, -50%);
+        transition: width 0.5s, height 0.5s;
+    }
+
+    #sobre-section .lang-tag:hover::before {
+        width: 200px;
+        height: 200px;
+    }
+
+    #sobre-section .lang-tag:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Competências */
+    #sobre-section .skills-list {
+        list-style: none;
+        margin-top: 20px;
+    }
+
+    #sobre-section .skills-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid #2d2d3d;
+        position: relative;
+        padding-left: 25px;
+        transition: all 0.3s ease;
+    }
+
+    #sobre-section .skills-list li::before {
+        content: '⚡';
+        position: absolute;
+        left: 0;
+        color: #ffffff;
+        font-size: 1.2em;
+        animation: spark-anim 1.5s ease-in-out infinite;
+    }
+
+    #sobre-section .skills-list li:hover {
+        padding-left: 35px;
+        color: #ffffff;
+    }
+
+    @keyframes spark-anim {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    /* Robô animado */
+    #sobre-section .robot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    #sobre-section .robot {
+        width: 80px;
+        height: 100px;
+        position: relative;
+        animation: robotMove 4s ease-in-out infinite;
+    }
+
+    @keyframes robotMove {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(-5deg); }
+        75% { transform: translateY(-5px) rotate(5deg); }
+    }
+
+    #sobre-section .robot-head {
+        width: 50px;
+        height: 40px;
+        background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+        border-radius: 8px;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+
+    #sobre-section .robot-eye {
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        animation: blink-eye 3s infinite;
+    }
+
+    #sobre-section .robot-eye.left { left: 12px; }
+    #sobre-section .robot-eye.right { right: 12px; }
+
+    @keyframes blink-eye {
+        0%, 90%, 100% { opacity: 1; }
+        95% { opacity: 0; }
+    }
+
+    #sobre-section .robot-antenna {
+        width: 3px;
+        height: 15px;
+        background: #8b5cf6;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #sobre-section .robot-antenna::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #a78bfa;
+        border-radius: 50%;
+        position: absolute;
+        top: -5px;
+        left: -2.5px;
+        animation: signal-pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes signal-pulse {
+        0%, 100% { box-shadow: 0 0 5px rgba(167, 139, 250, 0.5); }
+        50% { box-shadow: 0 0 20px rgba(167, 139, 250, 1); }
+    }
+
+    #sobre-section .robot-body {
+        width: 60px;
+        height: 50px;
+        background: linear-gradient(145deg, #13131a, #1a1a24);
+        border: 2px solid #8b5cf6;
+        border-radius: 8px;
+        margin: 5px auto 0;
+        position: relative;
+    }
+
+    #sobre-section .robot-arm {
+        width: 8px;
+        height: 35px;
+        background: #8b5cf6;
+        position: absolute;
+        top: 10px;
+        border-radius: 4px;
+    }
+
+    #sobre-section .robot-arm.left {
+        left: -15px;
+        animation: armWave 2s ease-in-out infinite;
+    }
+
+    #sobre-section .robot-arm.right {
+        right: -15px;
+        animation: armWave 2s ease-in-out infinite 1s;
+    }
+
+    @keyframes armWave {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(20deg); }
+    }
+
+    @keyframes particleFade {
+        to {
+            opacity: 0;
+            transform: translateY(-30px) scale(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        #sobre-section .header h2 { font-size: 2.5em; }
+        #sobre-section .about-grid { grid-template-columns: 1fr; }
+        #sobre-section .robot { transform: scale(0.8); }
+    }
         
         /* Responsividade */
         @media (max-width: 1024px) {
@@ -981,10 +1324,10 @@
     
     <!-- Navbar -->
     <nav id="navbar">
-        <div class="logo" ><img src="../SharkTests/images/SENAassinatura.png" alt=""><span style="color: var(--accent);">.</span></div>
+        <div class="logo" ><img src="../Portfolio/midia/image.png" alt=""><span style="color: var(--accent);">.</span></div>
         <div class="nav-links" id="navLinks">
             <a href="#home">Home</a>
-            <a href="#about">Sobre</a>
+            
             <a href="#experience">Experiência</a>
             <a href="#education">Formação</a>
             <a href="#projects">Projetos</a>
@@ -998,23 +1341,25 @@
     </nav>
     
     <!-- Header/Hero Section -->
-    <header id="home">
+    <header id="home" style="position:relative;">
+        <canvas id="particles-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
         <div class="bg-decoration">
             <div class="bg-circle"></div>
             <div class="bg-lines" id="bgLines"></div>
         </div>
-        
         <div class="hero-container">
             <div class="hero-text">
                 <h4>Olá, me chamo</h4>
                 <h1 id="typewriter"></h1>
-                <p>Programador Front-end e Técnico em Manutenção Industrial, com 17 anos de idade e um forte interesse em desenvolvimento de interfaces modernas e resolução de problemas técnicos.</p>
+                <p>Programador Front-end e Auxuliar Técnico em Manutenção Industrial, interesse em Engenharia de Controle e Automação, foco em desenvolvimento de interfaces e resolução de problemas técnicos.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="cta-btn primary-btn">Meus Projetos <i class="fas fa-code"></i></a>
                     <a href="#contact" class="cta-btn secondary-btn">Contato <i class="fas fa-paper-plane"></i></a>
+                    <a href="midia/curriculo.pdf" class="cta-btn primary-btn" target="_blank" rel="noopener" style="background:#141313;color:#ffffff;border:2px solid #8a2be2;">
+                        Ver Currículo <i class="fas fa-download"></i>
+                    </a>
                 </div>
             </div>
-            
             <div class="hero-img">
                 <div class="profile-img-container">
                     <img src="../Portfolio/midia/Imagem do WhatsApp de 2025-05-18 à(s) 21.02.45_dbc50cdc.jpg" alt="Augusto Sena" class="profile-img" id="profileImg">
@@ -1023,6 +1368,161 @@
         </div>
     </header>
     <script>
+    // Partículas interativas: atração para a foto de perfil ao passar o mouse e repulsão ao sair
+    (function() {
+        const canvas = document.getElementById('particles-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 90 };
+        let attractToProfile = false;
+        let repelFromProfile = false;
+        let profileCenter = { x: 0, y: 0, r: 0 };
+        let animationId;
+        let repelTimeout = null;
+        function resizeCanvas() {
+            const header = document.getElementById('home');
+            canvas.width = header.offsetWidth;
+            canvas.height = header.offsetHeight;
+            // Atualiza centro da foto
+            const img = document.getElementById('profileImg');
+            if (img) {
+                const rect = img.getBoundingClientRect();
+                const headerRect = header.getBoundingClientRect();
+                profileCenter.x = rect.left - headerRect.left + rect.width / 2;
+                profileCenter.y = rect.top - headerRect.top + rect.height / 2;
+                profileCenter.r = rect.width / 2;
+            }
+        }
+        function createParticles() {
+            particles = [];
+            const w = canvas.width, h = canvas.height;
+            for (let i = 0; i < 60; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7,
+                    r: Math.random() * 2 + 1,
+                    alpha: Math.random() * 0.5 + 0.3
+                });
+            }
+        }
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let p of particles) {
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+                ctx.fillStyle = '#8a2be2';
+                ctx.shadowColor = '#8a2be2';
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+        function updateParticles() {
+            for (let p of particles) {
+                // Interação com o mouse
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const angle = Math.atan2(dy, dx);
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        p.vx += Math.cos(angle) * force * 0.5;
+                        p.vy += Math.sin(angle) * force * 0.5;
+                    }
+                }
+                // Atração para a foto de perfil
+                if (attractToProfile) {
+                    const dx = profileCenter.x - p.x;
+                    const dy = profileCenter.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist > profileCenter.r * 0.7) {
+                        const angle = Math.atan2(dy, dx);
+                        p.vx += Math.cos(angle) * 0.15;
+                        p.vy += Math.sin(angle) * 0.15;
+                    }
+                }
+                // Repulsão ao sair da foto
+                if (repelFromProfile) {
+                    const dx = p.x - profileCenter.x;
+                    const dy = p.y - profileCenter.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < profileCenter.r * 1.2) {
+                        const angle = Math.atan2(dy, dx);
+                        p.vx += Math.cos(angle) * 0.25;
+                        p.vy += Math.sin(angle) * 0.25;
+                    }
+                }
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                // Fricção
+                p.vx *= 0.98;
+                p.vy *= 0.98;
+            }
+        }
+        function animate() {
+            drawParticles();
+            updateParticles();
+            animationId = requestAnimationFrame(animate);
+        }
+        function checkParticlesVisibility() {
+            // Sempre anima, só esconde o canvas se não estiver visível
+            const header = document.getElementById('home');
+            const rect = header.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                canvas.style.opacity = 1;
+            } else {
+                canvas.style.opacity = 0;
+            }
+            if (!animationId) animate();
+        }
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createParticles();
+        });
+        window.addEventListener('scroll', checkParticlesVisibility);
+        canvas.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        canvas.addEventListener('mouseleave', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        // Atração e repulsão para a foto de perfil
+        document.addEventListener('DOMContentLoaded', () => {
+            resizeCanvas();
+            createParticles();
+            checkParticlesVisibility();
+            animate();
+            // Eventos para a foto de perfil
+            const img = document.getElementById('profileImg');
+            if (img) {
+                img.addEventListener('mouseenter', () => {
+                    resizeCanvas();
+                    attractToProfile = true;
+                    repelFromProfile = false;
+                    if (repelTimeout) clearTimeout(repelTimeout);
+                });
+                img.addEventListener('mouseleave', () => {
+                    attractToProfile = false;
+                    repelFromProfile = true;
+                    if (repelTimeout) clearTimeout(repelTimeout);
+                    repelTimeout = setTimeout(() => {
+                        repelFromProfile = false;
+                    }, 1200);
+                });
+            }
+        });
+    })();
         // Efeito de digitando para o nome
         document.addEventListener('DOMContentLoaded', function() {
             const el = document.getElementById('typewriter');
@@ -1042,38 +1542,76 @@
     </script>
     
     <!-- Sobre Section -->
-    <section id="about" class="section">
-        <h2 class="section-title">Sobre Mim</h2>
+    <section id="sobre-section">
+    <!-- Circuito de fundo -->
+    <div class="circuit-bg" id="circuitBg"></div>
+
+    <div class="container">
         
-        <div class="about-content">
-            <div class="about-text">
-                <p>Sou um programador front-end e técnico em manutenção industrial de 17 anos com grande interesse em tecnologia e resolução de problemas técnicos. Possuo conhecimentos em HTML, CSS, JavaScript e manutenção de equipamentos industriais.</p>
-                <p>Busco constantemente aprender novas tecnologias e desenvolver minhas habilidades para criar soluções eficientes e inovadoras que contribuam para o sucesso dos projetos em que trabalho.</p>
-                
-                
-            <div class="skills-container">
-                <h3 class="skill-cat-title">Habilidades Técnicas</h3>
-                <div class="skills-list">
-                    <div class="skill-item">HTML5</div>
-                    <div class="skill-item">CSS3</div>
-                    <div class="skill-item">JavaScript</div>        
-                    <div class="skill-item">Python</div>  
-                    <div class="skill-item">Manutenção Industrial</div>
+       
+        <!-- Grid de conteúdo -->
+        <div class="about-grid">
+            <!-- Plano de Carreira -->
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Plano de Carreira</h3>
+                <p>
+                    Minha jornada está direcionada para a <strong>Engenharia Mecatrônica</strong>, 
+                    onde pretendo unir mecânica, eletrônica e programação para criar soluções 
+                    inovadoras e automatizadas. Busco aprofundar meus conhecimentos em 
+                    <strong>sistemas elétricos</strong>, eletrônica embarcada e robótica, 
+                    desenvolvendo projetos que transformem ideias em realidade tecnológica.
+                </p>
+            </div>
+
+            <!-- Linguagens de Programação -->
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Linguagens de Programação</h3>
+                <p>Domínio em tecnologias que impulsionam a inovação:</p>
+                <div class="languages">
+                    <div class="lang-tag">JavaScript</div>
+                    <div class="lang-tag">Python</div>
+                    <div class="lang-tag">HTML/CSS</div>
+                    <div class="lang-tag">Raspberry</div>
+                    <div class="lang-tag">FLutter</div>
+                    <div class="lang-tag">VUE</div>
                     
-                </div>
-                
-                <h3 class="skill-cat-title">Habilidades Pessoais</h3>
-                <div class="skills-list">
-                    <div class="skill-item">Solução de Problemas</div>
-                    <div class="skill-item">Trabalho em Equipe</div>
-                    
-                    <div class="skill-item">Organização</div>
-                    
-                    <div class="skill-item">Aprendizado Rápido</div>
                 </div>
             </div>
+
+            <!-- Competências -->
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Competências Técnicas</h3>
+                <ul class="skills-list">
+                    <li>Desenvolvimento de interfaces web modernas</li>
+                    <li>Programação de microcontroladores</li>
+                    
+                    <li>Prototipagem de projetos</li>
+                    <li>Resolução criativa de problemas</li>
+                    <li>Trabalho em equipe e liderança</li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Robô animado -->
+    <div class="robot-container" onclick="robotInteraction()">
+        <div class="robot">
+            <div class="robot-head">
+                <div class="robot-antenna"></div>
+                <div class="robot-eye left"></div>
+                <div class="robot-eye right"></div>
+            </div>
+            <div class="robot-body">
+                <div class="robot-arm left"></div>
+                <div class="robot-arm right"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
     
     <!-- Experiência Section -->
     <section id="experience" class="section">
@@ -1083,10 +1621,18 @@
             <div class="timeline">
                 <div class="exp-item">
                     <div class="exp-content">
-                        <span class="exp-date">2025</span>
+                        <span class="exp-date">2025 - Atual</span>
                         <h3 class="exp-title">Auxiliar Técnico</h3>
                         <span class="exp-company">AMS</span>
                         <p class="exp-desc">Atuação como auxiliar técnico, dando suporte em atividades de manutenção e assistência técnica, auxiliando na solução de problemas e manutenção preventiva.</p>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-content">
+                        <span class="exp-date">2024-2025</span>
+                        <h3 class="exp-title">Social Media</h3>
+                        <span class="exp-company">Barbearia São Gabriel</span>
+                        <p class="exp-desc">Atuação como social media, produzindo criativos para as redes socias do estabelecimento, auxiliando no engajamento da empresa dentro da internet.</p>
                     </div>
                 </div>
                 
@@ -1141,6 +1687,25 @@
                 <div class="edu-inst">SENAI</div>
                 <p class="edu-desc">Certificação em segurança no trabalho, com foco em prevenção de acidentes e procedimentos de segurança em ambiente industrial.</p>
             </div>
+            <div class="edu-item">
+                <span class="edu-year">2025</span>
+                <h3 class="edu-title">Pneumática Básica</h3>
+                <div class="edu-inst">Awaltech</div>
+                <p class="edu-desc">Curso de fundamentos e aplicações práticas em pneumática industrial.</p>
+            </div>
+            <div class="edu-item">
+                <span class="edu-year">2024</span>
+                <h3 class="edu-title">Proteção de Dados</h3>
+                <div class="edu-inst">SENAI</div>
+                <p class="edu-desc">Certificação em proteção de dados, abordando privacidade, legislação e boas práticas.</p>
+            </div>
+            <div class="edu-item">
+                <span class="edu-year">2024</span>
+                <h3 class="edu-title">Ética na Inteligência Artificial</h3>
+                <div class="edu-inst">SENAI</div>
+                <p class="edu-desc">Curso sobre princípios éticos, responsabilidade e impactos sociais da IA.</p>
+            </div>
+             
         </div>
     </section>
     
@@ -1486,6 +2051,120 @@
             }
         }
         
+         // Gerar circuito de fundo aleatório
+    function generateCircuit() {
+        const circuitBg = document.getElementById('circuitBg');
+        if (!circuitBg) return;
+        
+        const lines = 30;
+
+        for (let i = 0; i < lines; i++) {
+            const line = document.createElement('div');
+            line.className = 'circuit-line';
+            
+            const isHorizontal = Math.random() > 0.5;
+            if (isHorizontal) {
+                line.style.width = `${Math.random() * 200 + 50}px`;
+                line.style.height = '2px';
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+            } else {
+                line.style.width = '2px';
+                line.style.height = `${Math.random() * 200 + 50}px`;
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+            }
+            
+            line.style.animationDelay = `${Math.random() * 3}s`;
+            circuitBg.appendChild(line);
+        }
+    }
+
+    // Interação com o robô
+    function robotInteraction() {
+        const robot = document.querySelector('#sobre-section .robot');
+        if (!robot) return;
+        
+        robot.style.animation = 'none';
+        setTimeout(() => {
+            robot.style.animation = 'robotMove 4s ease-in-out infinite';
+        }, 10);
+
+        const messages = [
+            '🤖 Olá! Sou seu assistente robótico!',
+            '⚡ Automatizando o futuro!',
+            '🔧 Engenharia em ação!',
+            '💜 Código + Eletrônica = Inovação!',
+            '⚡ FrontEnd > BackEnd!',
+        ];
+        
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        
+        const notification = document.createElement('div');
+        notification.textContent = randomMsg;
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 170px;
+            right: 20px;
+            background: #111;
+            border: 2px solid #8b5cf6;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.5);
+            animation: slideIn 0.3s ease;
+            z-index: 1001;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // Efeito de partículas ao mover o mouse
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.95) {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: #8b5cf6;
+                border-radius: 50%;
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                pointer-events: none;
+                animation: particleFade 1s ease-out forwards;
+                z-index: 999;
+            `;
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 1000);
+        }
+    });
+
+    // Inicializar quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateCircuit);
+    } else {
+        generateCircuit();
+    }
+
+    // Efeito nas tags de linguagem
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('#sobre-section .lang-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2) rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 500);
+            });
+        });
+    });
+
         // Iniciar efeito de partículas
         createParticles();
         
