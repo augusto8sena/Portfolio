@@ -2404,23 +2404,36 @@
     function robotInteraction() {
         const robot = document.querySelector('#sobre-section .robot');
         if (!robot) return;
-        
+
+        // Evita sobreposição: remove balão anterior se existir
+        const oldBalloon = document.getElementById('robot-balloon');
+        if (oldBalloon) oldBalloon.remove();
+
         robot.style.animation = 'none';
         setTimeout(() => {
             robot.style.animation = 'robotMove 4s ease-in-out infinite';
         }, 10);
 
+        // Mensagens e controle de repetição
         const messages = [
             '🤖 Olá! Sou seu assistente robótico!',
             '⚡ Automatizando o futuro!',
             '🔧 Engenharia em ação!',
             '💜 Código + Eletrônica = Inovação!',
-            '⚡ FrontEnd > BackEnd!',
+            '⚡ FrontEnd > BackEnd!'
         ];
-        
-        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-        
+        // Salva última mensagem em variável global
+        window._lastRobotMsg = window._lastRobotMsg || '';
+        let randomMsg;
+        let tries = 0;
+        do {
+            randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            tries++;
+        } while (randomMsg === window._lastRobotMsg && tries < 10);
+        window._lastRobotMsg = randomMsg;
+
         const notification = document.createElement('div');
+        notification.id = 'robot-balloon';
         notification.textContent = randomMsg;
         notification.style.cssText = `
             position: fixed;
@@ -2436,12 +2449,14 @@
             animation: slideIn 0.3s ease;
             z-index: 1001;
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
+            setTimeout(() => {
+                if (notification.parentNode) notification.remove();
+            }, 300);
         }, 3000);
     }
 
