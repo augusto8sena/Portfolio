@@ -130,7 +130,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #a855f7, #6366f1);
+            background: #23232b !important;
+            border: none !important;
+            color: #fff !important;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
             color: #fff;
             padding: 10px 20px;
             border-radius: 8px;
@@ -143,6 +146,7 @@
         }
 
         .github-btn:hover {
+            background: #8a2be2 !important;
             transform: translateY(-2px) scale(1.04);
             box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
         }
@@ -1964,7 +1968,7 @@
                         <span class="tag">PostgreSQL</span>
                     </div>
                     <div style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 10px;">
-                        <a href="#" class="github-btn" onclick="event.stopPropagation()">
+                        <a href="https://github.com/jimmyadmsenior/MundoSENAI-Front" class="github-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
                         <div class="flip-indicator">Preview </div>
@@ -1995,7 +1999,7 @@
                         <span class="tag">MySQL</span>
                     </div>
                     <div style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 10px;">
-                        <a href="#" class="github-btn" onclick="event.stopPropagation()">
+                        <a href="https://github.com/Matos111/SHARKRUSH" class="github-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
                         <div class="flip-indicator">Preview</div>
@@ -2025,7 +2029,7 @@
                         <span class="tag">Google Sites</span>
                     </div>
                     <div style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 10px;">
-                        <a href="#" class="github-btn" onclick="event.stopPropagation()">
+                        <a href="https://github.com/augusto8sena/AMS-Technology" class="github-btn" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
                         <div class="flip-indicator">Preview</div>
@@ -2044,9 +2048,9 @@
             <div class="project-card" onclick="flipCard(this)">
                 <div class="card-face card-front">
                     <div class="project-icon">📱</div>
-                    <h3 class="project-title">Portfolio em Flutter</h3>
+                    <h3 class="project-title">Contador em Flutter</h3>
                     <p class="project-description">
-                        Meu portfólio desenvolvido em Flutter, com design moderno, responsivo e integração para Android.
+                        Um contador com diversas funções, com design moderno, responsivo e integração para Android.
                     </p>
                     <div class="project-tags">
                         <span class="tag">Flutter</span>
@@ -2054,7 +2058,7 @@
                         <span class="tag">Android</span>
                     </div>
                     <div style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 10px;">
-                        <a href="#" class="github-btn" onclick="event.stopPropagation()">
+                        <a href="https://github.com/augusto8sena/Flutter-Sena" class="github-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
                         <div class="flip-indicator">Preview</div>
@@ -2063,7 +2067,7 @@
                 <div class="card-face card-back">
                     <div class="video-container">
                         <video controls autoplay loop muted>
-                            <source src="midia/videos/flutterportfolio.mp4" type="video/mp4">
+                            <source src="midia/videos/flutter.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -2124,41 +2128,22 @@
                         <h4>Email</h4>
                         <p><a href="mailto:augusto10mile@gmail.com" target="_blank">augusto10mile@gmail.com</a></p>
                     </div>
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 0;">
+                    <a href="https://www.linkedin.com/in/augusto8sena" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.7rem; background: #23232b; color: #fff; padding: 1.1rem 2.2rem; border-radius: 8px; font-size: 1.2rem; font-weight: 600; text-decoration: none; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10); border: none; transition: background 0.2s;">
+                        <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i> Fale comigo no LinkedIn
+                    </a>
+                </div>
                 </div>
             </div>
             
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" class="form-control" placeholder="Seu nome" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" placeholder="Seu email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" class="form-control" placeholder="Sua mensagem" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                </form>
-            </div>
+            
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo"><img src="../SharkTests/images/Imagem do WhatsApp de 2025-05-18 à(s) 21.02.45_dbc50cdc.jpg">div>
+            <div class="footer-logo"><img src="../Portfolio/midia/imagens/fotoperfil.jpg"div>
             
             <div class="footer-social">
                 <a href="https://wa.me/5511941369774" target="_blank" class="social-icon">
