@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augusto Sena | Portfólio</title>
-    <link rel="icon" type="image/x-icon" href="midia/imagens/image.png">
+    <link rel="icon" type="image/x-icon" href="midia/imagens/logobranca.png">
     <style>
 
         
@@ -1423,12 +1423,29 @@
             .robot-container {
                 display: none !important;
             }
-        #sobre-section .header h2 { font-size: 2.5em; }
-        #sobre-section .about-grid { grid-template-columns: 1fr; }
-        #sobre-section .robot { transform: scale(0.8); }
-    }
-        
-        /* Responsividade */
+            
+            .profile-img-container {
+                width: 220px;
+                height: 220px;
+                margin-top: 70px;
+            }
+
+            /* Extra safety: push header content down so navbar doesn't overlap */
+            header {
+                padding-top: 90px !important; /* ensure content starts below navbar */
+                padding-bottom: 30px;
+                height: auto;
+            }
+
+            .hero-container {
+                gap: 1rem;
+            }
+
+            .cta-social {
+                display: flex !important;
+                justify-content: center;
+                margin: 1rem 0 140px 0 !important; /* big bottom margin to avoid overlap */
+            }
         @media (max-width: 1024px) {
             .hero-container {
                 flex-direction: column-reverse;
