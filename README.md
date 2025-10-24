@@ -26,11 +26,12 @@ Sou Desenvolvedor Front-End com formação em Desenvolvimento de Sistemas pelo S
 ---
 
 ## Projetos em destaque  
-- **Aplicação Mundo SENAI** – Controle de estoque e gráficos interativos (PHP · TypeScript · Node.js · PostgreSQL)  
-- **Gerador de Treinos** – Sistema web para geração automática de treinos personalizados (HTML · JavaScript · PHP · MySQL)  
-- **AMS Techlogy Showroom** – Site institucional para showroom de produtos e soluções (HTML · CSS · JavaScript)  
-- **Contador em Flutter** – App contadora com diversas funcionalidades para Android (Flutter)  
-> *(Você pode incluir links diretos para repositórios ou live demos nessa seção)*
+- [**SHARKRUSH**](https://github.com/Matos111/SHARKRUSH) – Plataforma completa de gerenciamento de treinos de academia, com funcionalidades de rotina, IMC e geolocalização (PHP · HTML · CSS · JavaScript)  
+- [**Mundo SENAI-Front**](https://github.com/jimmyadmsenior/MundoSENAI-Front) – Plataforma de e-commerce para periféricos de computador, projeto do curso do SENAI (HTML · CSS · JavaScript · PHP Laravel · MySQL)  
+- [**Flutter-Sena**](https://github.com/augusto8sena/Flutter-Sena) – App em Flutter focado em contagem ou funcionalidade mobile (Dart · Flutter)  
+- [**AMS Technology**](https://github.com/augusto8sena/AMS-Technology) – Projeto institucional/site para showroom de produtos e soluções web (HTML · CSS · JavaScript)  
+
+
 
 ---
 
